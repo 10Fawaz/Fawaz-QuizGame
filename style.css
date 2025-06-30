@@ -1,0 +1,43 @@
+body {
+  background: rgb(166, 166, 156);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  margin: 1rem;
+}
+.main {
+  background: beige;
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px black;
+  border-radius: 12px;
+}
+
+button {
+  background: rgb(78, 184, 184);
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1.1rem;
+  margin: 0.4rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgb(0, 136, 255);
+}
