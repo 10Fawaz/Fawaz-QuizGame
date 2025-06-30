@@ -35,5 +35,33 @@ const myCategories = {
       ],
       answer: ['Front-Wheel Drive']
     }
+  ],
+  horses: [
+    {
+      question: 'What is a male horse under four years called?',
+      options: ['Colt', 'Foal', 'Mare', 'Stallion'],
+      answer: ['Colt']
+    },
+    {
+      question: 'Which gait is faster then trot but slower then gallop?',
+      options: ['Canter', 'Walk', 'Prance', 'Stride'],
+      answer: ['Cantar']
+    },
+    {
+      question:
+        'What piece of tack goes into the horse mouth to help the rider control it?',
+      options: ['Saddle', 'Reins', 'Bit', 'Girth'],
+      answer: ['bit']
+    },
+    {
+      question: 'What is the name for a horse foot?',
+      options: ['Paw', 'Pad', 'Hoof', 'Claw'],
+      answer: ['Hoof']
+    },
+    {
+      question: 'In what unit is a horse height measured?',
+      options: ['Hands', 'Inches', 'Meters', 'Yards'],
+      answer: ['hands']
+    }
   ]
 }
