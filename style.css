@@ -1,5 +1,5 @@
 body {
-  background: rgb(166, 166, 156);
+  background: rgb(152, 152, 152);
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
@@ -28,7 +28,7 @@ h3 {
 }
 
 button {
-  background: rgb(78, 184, 184);
+  background: rgb(54, 105, 234);
   color: white;
   font-size: 1rem;
   padding: 0.5rem 1.1rem;
@@ -40,4 +40,38 @@ button {
 
 button:hover {
   background: rgb(0, 136, 255);
+}
+
+.hidden {
+  display: none;
+}
+
+#answerButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1rem;
+}
+.backNextButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.backNextButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+#scoreB {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+#finalScore {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
 }
