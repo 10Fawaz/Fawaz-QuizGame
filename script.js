@@ -1,12 +1,12 @@
 const myCategories = {
   cars: [
     {
-      question: 'Which car brand has a prancing horse as its logo?',
+      question: 'Which car brand has a prancing horse as its logo.',
       options: ['Ferrari', 'Porche', 'Lamborghini', 'BMW'],
       answer: ['Ferrari']
     },
     {
-      question: 'What country is home. to the car manufacturer Toyota?',
+      question: 'What country is home to the car manufacturer Toyota?',
       options: ['China', 'Japan', 'South Korea', 'Germany'],
       answer: ['Japan']
     },
@@ -26,7 +26,7 @@ const myCategories = {
       answer: ['Electric vehicle']
     },
     {
-      question: 'Which of these is a typle of a drivetrain.',
+      question: 'Which of these is a type of a drivetrain.',
       options: [
         'Front-Wheel Drive',
         'All-Screen Display',
@@ -34,16 +34,32 @@ const myCategories = {
         'Turbo Intake'
       ],
       answer: ['Front-Wheel Drive']
+    },
+    {
+      question: 'Which part of the car is responsible for reducing emissions.',
+      options: ['Muffler', 'Radiator', 'Alternator', 'Catalyatic Converter'],
+      answer: ['Catalyatic Converter']
+    },
+    {
+      question:
+        'Which car broke the land speed record in 1997 with over 760 mph.',
+      options: [
+        'Buggati Veyron',
+        'BloodHound SSC',
+        'Thrust SSC',
+        'Koenigsegg Jesko'
+      ],
+      answer: ['Thrust SSC']
     }
   ],
   horses: [
     {
-      question: 'What is a male horse under four years called?',
+      question: 'What is a male horse under 4 years called?',
       options: ['Colt', 'Foal', 'Mare', 'Stallion'],
       answer: ['Colt']
     },
     {
-      question: 'Which gait is faster then trot but slower then gallop?',
+      question: 'Which gait is faster then trot but slower then gallop.',
       options: ['Canter', 'Walk', 'Prance', 'Stride'],
       answer: ['Cantar']
     },
@@ -62,6 +78,17 @@ const myCategories = {
       question: 'In what unit is a horse height measured?',
       options: ['Hands', 'Inches', 'Meters', 'Yards'],
       answer: ['hands']
+    },
+    {
+      question: 'Which breed is known for racing and speed.',
+      options: ['Shetland Pony', 'Friesian', 'Clydesdale', 'Thoroughbred'],
+      answer: ['Thoroughbred']
+    },
+    {
+      question:
+        'Which famous horse won the Triple Crown in 1973 and is considered a legend.',
+      options: ['Seabiscuit', 'Secretariat', 'Man o War', 'War Admiral'],
+      answer: ['Secretariat']
     }
   ]
 }
