@@ -3,9 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Quiz Game</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
   </head>
-  <body></body>
+
+  <body>
+    <div class="main">
+      <h1>Quiz Game</h1>
+
+      <div class="category">
+        <h3>Choose Your Category :</h3>
+        <button data-category="cars">Cars</button>
+        <button data-category="horses">Horses</button>
+      </div>
+      <div class="section" class="hidden">
+        <h3 id="questionText"></h3>
+        <div id="answerButtons"></div>
+
+        <div class="backNextButtons">
+          <button id="back" class="hidden">Back</button>
+          <button id="next" class="hidden">Next</button>
+        </div>
+
+        <h3 id="scoreB">Your Score : 0</h3>
+      </div>
+      <div id="score" class="hidden">
+        <h3 id="finalScore"></h3>
+        <button onclick="location.reload()">Reset Game</button>
+      </div>
+    </div>
+  </body>
 </html>

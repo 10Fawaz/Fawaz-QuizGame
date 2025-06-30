@@ -41,8 +41,8 @@ The User get to choose
 
 if userChoice === Cars then
 set questions = CarsQuestions
-else if userChoice === Bikes then
-set questions = BikesQuestions
+else if userChoice === Horses then
+set questions = horsesQuestions
 
 score = 0
 
