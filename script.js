@@ -131,6 +131,18 @@ function startTheQuiz() {
   showQuestions()
 }
 
+nextBtn.addEventListener('click', () => {
+  currentIndex++
+
+  if (currentIndex < 5) {
+    showQuestions()
+  } else {
+    quizSection.style.display = 'none'
+    quizResult.style.display = 'block'
+    finalScore.textContent = `The Final Score is ${score}`
+  }
+})
+
 function showQuestions() {
   quizAnswers.innerHTML = ''
   const currentQuestion = selectedCategory[currentIndex]
@@ -145,12 +157,12 @@ function showQuestions() {
       userAnswers[currentIndex] = option
       if (option === currentQuestion.answer) {
         score++
+        scoreBoard.textContent = `Your Score : ${score}`
       }
+
       nextBtn.style.display = 'inline-block'
     })
     quizAnswers.appendChild(answerButton)
   })
   nextBtn.style.display = 'none'
 }
-
-console.log('Selected category:', selectedCategory)
