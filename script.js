@@ -1,4 +1,4 @@
-const myCategories = {
+const myQuestions = {
   cars: [
     {
       question: 'Which car brand has a prancing horse as its logo.',
@@ -93,7 +93,8 @@ const myCategories = {
   ]
 }
 
-const categoryBtns = document.querySelectorAll('data-category')
+const categoryBtns = document.querySelectorAll('[data-category]')
+const categorySection = document.querySelector('.category')
 const quizSection = document.querySelector('.section')
 const quizQuestions = document.querySelector('#questiontext')
 const quizAnswers = document.querySelector('#answerButtons')
@@ -102,9 +103,32 @@ const backBtn = document.querySelector('#back')
 const nextBtn = document.querySelector('#next')
 const scoreBoard = document.querySelector('#scoreB')
 const quizResult = document.querySelector('#result')
-const finalScore = documnet.querySelector('#finalScore')
+const finalScore = document.querySelector('#finalScore')
 
 let score = 0
 let currentIndex = 0
 let selectedCategory = []
 let userAnswers = []
+
+categoryBtns.forEach((button) => {
+  button.addEventListener('click', () => {
+    const userChoice = button.getAttribute('data-category')
+    selectedCategory = myQuestions[userChoice]
+
+    categorySection.style.display = 'none'
+    quizSection.style.display = 'block'
+    scoreBoard.style.display = 'block'
+
+    startTheQuiz()
+  })
+})
+
+function startTheQuiz() {
+  currentIndex = 0
+  score = 0
+  userAnswers = []
+
+  showQuestions()
+}
+
+console.log(categorySection)
