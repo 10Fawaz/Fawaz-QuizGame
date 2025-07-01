@@ -2,18 +2,18 @@ const myCategories = {
   cars: [
     {
       question: 'Which car brand has a prancing horse as its logo.',
-      options: ['Ferrari', 'Porche', 'Lamborghini', 'BMW'],
-      answer: ['Ferrari']
+      options: ['Ferrari', 'Porsche', 'Lamborghini', 'BMW'],
+      answer: 'Ferrari'
     },
     {
       question: 'What country is home to the car manufacturer Toyota?',
       options: ['China', 'Japan', 'South Korea', 'Germany'],
-      answer: ['Japan']
+      answer: 'Japan'
     },
     {
       question: 'Who founded the Ford Motor company?',
       options: ['Enzo Ferrari', 'Henry Ford', 'Karl Benz', 'Elon Musk'],
-      answer: ['Henry Ford']
+      answer: 'Henry Ford'
     },
     {
       question: 'What does "EV" stand for in the automotive world?',
@@ -23,7 +23,7 @@ const myCategories = {
         'Emission Valve',
         'Eco Van'
       ],
-      answer: ['Electric vehicle']
+      answer: 'Electric Vehicle'
     },
     {
       question: 'Which of these is a type of a drivetrain.',
@@ -33,12 +33,12 @@ const myCategories = {
         'Head-Up Display',
         'Turbo Intake'
       ],
-      answer: ['Front-Wheel Drive']
+      answer: 'Front-Wheel Drive'
     },
     {
       question: 'Which part of the car is responsible for reducing emissions.',
-      options: ['Muffler', 'Radiator', 'Alternator', 'Catalyatic Converter'],
-      answer: ['Catalyatic Converter']
+      options: ['Muffler', 'Radiator', 'Alternator', 'Catalytic Converter'],
+      answer: 'Catalytic Converter'
     },
     {
       question:
@@ -49,46 +49,62 @@ const myCategories = {
         'Thrust SSC',
         'Koenigsegg Jesko'
       ],
-      answer: ['Thrust SSC']
+      answer: 'Thrust SSC'
     }
   ],
   horses: [
     {
       question: 'What is a male horse under 4 years called?',
       options: ['Colt', 'Foal', 'Mare', 'Stallion'],
-      answer: ['Colt']
+      answer: 'Colt'
     },
     {
       question: 'Which gait is faster then trot but slower then gallop.',
       options: ['Canter', 'Walk', 'Prance', 'Stride'],
-      answer: ['Cantar']
+      answer: 'Canter'
     },
     {
       question:
         'What piece of tack goes into the horse mouth to help the rider control it?',
       options: ['Saddle', 'Reins', 'Bit', 'Girth'],
-      answer: ['bit']
+      answer: 'Bit'
     },
     {
       question: 'What is the name for a horse foot?',
       options: ['Paw', 'Pad', 'Hoof', 'Claw'],
-      answer: ['Hoof']
+      answer: 'Hoof'
     },
     {
       question: 'In what unit is a horse height measured?',
       options: ['Hands', 'Inches', 'Meters', 'Yards'],
-      answer: ['hands']
+      answer: 'Hands'
     },
     {
       question: 'Which breed is known for racing and speed.',
       options: ['Shetland Pony', 'Friesian', 'Clydesdale', 'Thoroughbred'],
-      answer: ['Thoroughbred']
+      answer: 'Thoroughbred'
     },
     {
       question:
         'Which famous horse won the Triple Crown in 1973 and is considered a legend.',
       options: ['Seabiscuit', 'Secretariat', 'Man o War', 'War Admiral'],
-      answer: ['Secretariat']
+      answer: 'Secretariat'
     }
   ]
 }
+
+const categoryBtns = document.querySelectorAll('data-category')
+const quizSection = document.querySelector('.section')
+const quizQuestions = document.querySelector('#questiontext')
+const quizAnswers = document.querySelector('#answerButtons')
+const navigationBtns = document.querySelector('.backNextButtons')
+const backBtn = document.querySelector('#back')
+const nextBtn = document.querySelector('#next')
+const scoreBoard = document.querySelector('#scoreB')
+const quizResult = document.querySelector('#result')
+const finalScore = documnet.querySelector('#finalScore')
+
+let score = 0
+let currentIndex = 0
+let selectedCategory = []
+let userAnswers = []

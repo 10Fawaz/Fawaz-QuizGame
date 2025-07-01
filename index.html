@@ -17,20 +17,20 @@
         <button data-category="cars">Cars</button>
         <button data-category="horses">Horses</button>
       </div>
+
       <div class="section" class="hidden">
         <h3 id="questionText"></h3>
         <div id="answerButtons"></div>
-
         <div class="backNextButtons">
           <button id="back" class="hidden">Back</button>
           <button id="next" class="hidden">Next</button>
         </div>
-
         <h3 id="scoreB">Your Score : 0</h3>
       </div>
-      <div id="score" class="hidden">
+
+      <div id="result" class="hidden">
         <h3 id="finalScore"></h3>
-        <button onclick="location.reload()">Reset Game</button>
+        <button onclick="reset()">Reset Game</button>
       </div>
     </div>
   </body>
