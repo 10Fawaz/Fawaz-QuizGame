@@ -101,6 +101,7 @@ const quizAnswers = document.querySelector('#answerButtons')
 const navigationBtns = document.querySelector('.backNextButtons')
 const backBtn = document.querySelector('#back')
 const nextBtn = document.querySelector('#next')
+const resetBtn = document.querySelector('#reset')
 const scoreBoard = document.querySelector('#scoreB')
 const quizResult = document.querySelector('#result')
 const finalScore = document.querySelector('#finalScore')
@@ -130,19 +131,35 @@ function startTheQuiz() {
 
   showQuestions()
 }
+function navigationButtons() {
+  nextBtn.addEventListener('click', () => {
+    currentIndex++
 
-nextBtn.addEventListener('click', () => {
-  currentIndex++
-
-  if (currentIndex < 5) {
-    showQuestions()
-  } else {
+    if (currentIndex < 5) {
+      showQuestions()
+    } else {
+      quizSection.style.display = 'none'
+      quizResult.style.display = 'block'
+      finalScore.textContent = `The Final Score is ${score}`
+    }
+  })
+  backBtn.addEventListener('click', () => {
+    if (currentIndex < 0) {
+      currentIndex--
+      showQuestions()
+    }
+  })
+  resetBtn.addEventListener('click', () => {
+    currentIndex = 0
+    score = 0
+    userAnswers = []
+    categorySection.style.display = 'block'
     quizSection.style.display = 'none'
-    quizResult.style.display = 'block'
-    finalScore.textContent = `The Final Score is ${score}`
-  }
-})
-
+    quizResult.style.display = 'none'
+    scoreBoard.textContent = 'Your Score : 0'
+  })
+}
+navigationButtons()
 function showQuestions() {
   quizAnswers.innerHTML = ''
   const currentQuestion = selectedCategory[currentIndex]
@@ -159,10 +176,10 @@ function showQuestions() {
         score++
         scoreBoard.textContent = `Your Score : ${score}`
       }
-
-      nextBtn.style.display = 'inline-block'
     })
     quizAnswers.appendChild(answerButton)
   })
-  nextBtn.style.display = 'none'
+  nextBtn.style.display = 'inline-block'
+  backBtn.style.display = 'inline-block'
+  resetBtn.style.display = 'inline-block'
 }
