@@ -96,7 +96,7 @@ const myQuestions = {
 const categoryBtns = document.querySelectorAll('[data-category]')
 const categorySection = document.querySelector('.category')
 const quizSection = document.querySelector('.section')
-const quizQuestions = document.querySelector('#questiontext')
+const quizQuestions = document.querySelector('#questionText')
 const quizAnswers = document.querySelector('#answerButtons')
 const navigationBtns = document.querySelector('.backNextButtons')
 const backBtn = document.querySelector('#back')
@@ -131,4 +131,26 @@ function startTheQuiz() {
   showQuestions()
 }
 
-console.log(categorySection)
+function showQuestions() {
+  quizAnswers.innerHTML = ''
+  const currentQuestion = selectedCategory[currentIndex]
+  quizQuestions.textContent = currentQuestion.question
+
+  currentQuestion.options.forEach((option) => {
+    const answerButton = document.createElement('button')
+    answerButton.textContent = option
+    answerButton.classList.add('answerBtn')
+
+    answerButton.addEventListener('click', () => {
+      userAnswers[currentIndex] = option
+      if (option === currentQuestion.answer) {
+        score++
+      }
+      nextBtn.style.display = 'inline-block'
+    })
+    quizAnswers.appendChild(answerButton)
+  })
+  nextBtn.style.display = 'none'
+}
+
+console.log('Selected category:', selectedCategory)
