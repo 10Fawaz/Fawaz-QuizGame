@@ -115,11 +115,9 @@ categoryBtns.forEach((button) => {
   button.addEventListener('click', () => {
     const userChoice = button.getAttribute('data-category')
     selectedCategory = myQuestions[userChoice]
-
     categorySection.style.display = 'none'
     quizSection.style.display = 'block'
     scoreBoard.style.display = 'block'
-
     startTheQuiz()
   })
 })
@@ -134,7 +132,6 @@ function startTheQuiz() {
 function navigationButtons() {
   nextBtn.addEventListener('click', () => {
     currentIndex++
-
     if (currentIndex < 5) {
       showQuestions()
     } else {
@@ -144,7 +141,7 @@ function navigationButtons() {
     }
   })
   backBtn.addEventListener('click', () => {
-    if (currentIndex < 0) {
+    if (currentIndex > 0) {
       currentIndex--
       showQuestions()
     }
@@ -175,6 +172,10 @@ function showQuestions() {
       if (option === currentQuestion.answer) {
         score++
         scoreBoard.textContent = `Your Score : ${score}`
+      }
+      currentIndex++
+      if (currentIndex < 5) {
+        showQuestions()
       }
     })
     quizAnswers.appendChild(answerButton)
