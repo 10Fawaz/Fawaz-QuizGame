@@ -131,9 +131,9 @@ function startTheQuizFunction2() {
   currentIndex = 0
   score = 0
   userAnswers = []
-
   myShowQuestionsFunction3()
 }
+
 function myShowQuestionsFunction3() {
   quizAnswers.innerHTML = ''
   const currentQuestion = selectedCategory[currentIndex]
@@ -165,6 +165,7 @@ function myShowQuestionsFunction3() {
   backBtn.style.display = 'inline-block'
   resetBtn.style.display = 'inline-block'
 }
+
 function myNavigationButtonsFunction4() {
   nextBtn.addEventListener('click', () => {
     currentIndex++
