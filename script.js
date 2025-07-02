@@ -111,53 +111,30 @@ let currentIndex = 0
 let selectedCategory = []
 let userAnswers = []
 
-categoryBtns.forEach((button) => {
-  button.addEventListener('click', () => {
-    const userChoice = button.getAttribute('data-category')
-    selectedCategory = myQuestions[userChoice]
-    categorySection.style.display = 'none'
-    quizSection.style.display = 'block'
-    scoreBoard.style.display = 'block'
-    startTheQuiz()
-  })
-})
+myCategoriesBtnsFunction1()
+myNavigationButtonsFunction4()
 
-function startTheQuiz() {
+function myCategoriesBtnsFunction1() {
+  categoryBtns.forEach((button) => {
+    button.addEventListener('click', () => {
+      const userChoice = button.getAttribute('data-category')
+      selectedCategory = myQuestions[userChoice]
+      categorySection.style.display = 'none'
+      quizSection.style.display = 'block'
+      scoreBoard.style.display = 'block'
+      startTheQuizFunction2()
+    })
+  })
+}
+
+function startTheQuizFunction2() {
   currentIndex = 0
   score = 0
   userAnswers = []
 
-  showQuestions()
+  myShowQuestionsFunction3()
 }
-function navigationButtons() {
-  nextBtn.addEventListener('click', () => {
-    currentIndex++
-    if (currentIndex < 5) {
-      showQuestions()
-    } else {
-      quizSection.style.display = 'none'
-      quizResult.style.display = 'block'
-      finalScore.textContent = `The Final Score is ${score}`
-    }
-  })
-  backBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--
-      showQuestions()
-    }
-  })
-  resetBtn.addEventListener('click', () => {
-    currentIndex = 0
-    score = 0
-    userAnswers = []
-    categorySection.style.display = 'block'
-    quizSection.style.display = 'none'
-    quizResult.style.display = 'none'
-    scoreBoard.textContent = 'Your Score : 0'
-  })
-}
-navigationButtons()
-function showQuestions() {
+function myShowQuestionsFunction3() {
   quizAnswers.innerHTML = ''
   const currentQuestion = selectedCategory[currentIndex]
   quizQuestions.textContent = currentQuestion.question
@@ -175,7 +152,7 @@ function showQuestions() {
       }
       currentIndex++
       if (currentIndex < 5) {
-        showQuestions()
+        myShowQuestionsFunction3()
       } else {
         quizSection.style.display = 'none'
         quizResult.style.display = 'block'
@@ -187,4 +164,31 @@ function showQuestions() {
   nextBtn.style.display = 'inline-block'
   backBtn.style.display = 'inline-block'
   resetBtn.style.display = 'inline-block'
+}
+function myNavigationButtonsFunction4() {
+  nextBtn.addEventListener('click', () => {
+    currentIndex++
+    if (currentIndex < 5) {
+      myShowQuestionsFunction3()
+    } else {
+      quizSection.style.display = 'none'
+      quizResult.style.display = 'block'
+      finalScore.textContent = `The Final Score is ${score}`
+    }
+  })
+  backBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--
+      myShowQuestionsFunction3()
+    }
+  })
+  resetBtn.addEventListener('click', () => {
+    currentIndex = 0
+    score = 0
+    userAnswers = []
+    categorySection.style.display = 'block'
+    quizSection.style.display = 'none'
+    quizResult.style.display = 'none'
+    scoreBoard.textContent = 'Your Score : 0'
+  })
 }
