@@ -50,6 +50,32 @@ const myQuestions = {
         'Koenigsegg Jesko'
       ],
       answer: 'Thrust SSC'
+    },
+    {
+      question: 'What does ABS stand for in car safety systems?',
+      options: [
+        'Anti-Break System',
+        'Automatic Braking System',
+        'Anti-Lock Breaking System',
+        'Auto balancing System'
+      ],
+      answer: 'Anti-Lock Breaking System'
+    },
+    {
+      question: 'Which country is home to the luxury car brand Rolls-Royce?',
+      options: ['United States', 'Germany', 'Italy', 'United Kingdom'],
+      answer: 'United kingdom'
+    },
+    {
+      question:
+        'WWhat is the term for the electrical storage component in hybrid cars?',
+      options: [
+        'Capacitor',
+        'Turbo Cell',
+        'Lithium-ion Battery',
+        'Fuel Injecter'
+      ],
+      answer: 'Lithium-ion Battery'
     }
   ],
   horses: [
@@ -89,6 +115,22 @@ const myQuestions = {
         'Which famous horse won the Triple Crown in 1973 and is considered a legend.',
       options: ['Seabiscuit', 'Secretariat', 'Man o War', 'War Admiral'],
       answer: 'Secretariat'
+    },
+    {
+      question: 'What is a young female horse called?',
+      options: ['Colt', 'Filly', 'Foal', 'Mare'],
+      answer: 'Filly'
+    },
+    {
+      question: 'WWhich horse breed is known for its spotted coat patterns?',
+      options: ['Appaloosa', 'Arabian', 'Mustang', 'Morgan'],
+      answer: 'Appaloosa'
+    },
+    {
+      question:
+        'WWhat is the term for a horse comfortable resting area in a stable?',
+      options: ['Nest', 'Den', 'Stall', 'Pen'],
+      answer: 'Stall'
     }
   ]
 }
@@ -119,6 +161,9 @@ function myCategoriesBtnsFunction1() {
     button.addEventListener('click', () => {
       const userChoice = button.getAttribute('data-category')
       selectedCategory = myQuestions[userChoice]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5)
+
       categorySection.style.display = 'none'
       quizSection.style.display = 'block'
       scoreBoard.style.display = 'block'
