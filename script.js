@@ -176,6 +176,10 @@ function showQuestions() {
       currentIndex++
       if (currentIndex < 5) {
         showQuestions()
+      } else {
+        quizSection.style.display = 'none'
+        quizResult.style.display = 'block'
+        finalScore.textContent = `The Final Score is ${score}`
       }
     })
     quizAnswers.appendChild(answerButton)
