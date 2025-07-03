@@ -1,34 +1,36 @@
 # Quiz Game
 
-### Date: 29/jun/2025
+## Date: 29/jun/2025
 
-### By: Fawaz Ahmed
-
----
-
-#### [GitHub](https://github.com/10Fawaz)
+## By: Fawaz Ahmed
 
 ---
 
-### **_Description_**
+## [GitHub](https://github.com/10Fawaz)
 
 ---
 
-This project will be a Quiz Game.
-
-At first the game will make you choose between ( Cars / Horses )
-
-There will be 10 different questions for each category
-
-Each section will have 5 different quiz questions
-
-For each Question you get 1 point of score
-
-Your total score will appear when you finish all questions
+# Description
 
 ---
 
-### **Wireframes**
+###### This is How My Game Flows
+
+###### Category Selection : The User Chooses Between Cars or Horses. 5 random Questions Are Picked.
+
+###### Start Quiz : UI Updates And The First Question is Shown.
+
+###### Answering : User Picks An Answer. Buttons Highlights (Green / red). Score Updates if Correct.
+
+###### Progress : Progress Bar Updates Visually With Each Question.
+
+###### Navigation : users Can Go Forward,back, Or Reset The Game.
+
+###### Result : After 5 Questions, Final Score is Shown.
+
+---
+
+# Wireframes
 
 ---
 
@@ -36,43 +38,92 @@ Your total score will appear when you finish all questions
 
 ---
 
-### **_Pseudocode_**
+# Pseudocode
 
 ---
 
-Firstly display "Choose a category: Cars or Horses"
+### Firstly
 
-The User get to choose
+### In-Game Variables
 
----
+###### Define score = 0
 
-if userChoice === Cars then
+###### Define currentIndex = 0
 
-set questions = CarsQuestions
+###### Define selectedCategory = []
 
-else if userChoice === Horses then
-
-set questions = horsesQuestions
+###### Define userAnswers = []
 
 ---
 
-score = 0
+### Secondly
 
-for loop i FROM 1 TO 5 DO
+### Wait for user to select a category
 
-display the questions[i]
+### When selected:
 
-Get userAnswer
+###### → shuffle 5 random questions from that category
 
-if userAnswer === questions[i].correctAnswer then
+###### → hide category screen
 
-Add score by 1
+###### → show quiz screen
 
----
-
-Questions will be 10 each category and the quiz will Randomly pick 5 questions for the user
+###### → initialize quiz
 
 ---
 
-ENDING
-Displays "Game Over Your final score is: '' "
+### Thirdly
+
+### Display current question and options
+
+### Update progress bar based on currentIndex
+
+###### For each option:
+
+###### If user clicks:
+
+###### → save user answer
+
+###### → highlight correct (green) and wrong (red)
+
+###### → update score if correct
+
+###### → delay briefly
+
+###### → move to next question or show result
+
+---
+
+### Lastly
+
+### If 5 questions answered:
+
+###### → hide quiz screen
+
+###### → show result screen with final score
+
+---
+
+###### Back button:
+
+###### → go to previous question
+
+###### Next button:
+
+###### → go to next question
+
+###### Reset button:
+
+###### → Resets everything and shows category selection again
+
+---
+
+# Credits
+
+---
+
+1: One of my main rescources is **Codecademy**. ( In which i practice there and sometimes look up Articles on how to do a specific thing ).
+
+2: **W3Schools** Html, Css, JavaScript References( I mostly used it for DOM manipulation, event handling, and basic logic of my game ).
+
+3: **JSFiddle** ( I learned some features here like my progress bar and the timeout() and turning my answer green or red depends if its correct or wrong ).

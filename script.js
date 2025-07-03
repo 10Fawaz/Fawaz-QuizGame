@@ -1,4 +1,4 @@
-// This is the Questions, Answers, and the coreect answer object
+// This is the questons bank with 2 main categories (cars / horses )Each object conatins the question, the options , and the correct answer
 const myQuestions = {
   cars: [
     {
@@ -136,7 +136,7 @@ const myQuestions = {
   ]
 }
 
-// The queryselectors i used
+// Here i select the html elements using query selectors
 
 const categoryBtns = document.querySelectorAll('[data-category]')
 const categorySection = document.querySelector('.category')
@@ -150,23 +150,26 @@ const resetBtn = document.querySelector('#reset')
 const scoreBoard = document.querySelector('#scoreB')
 const quizResult = document.querySelector('#result')
 const finalScore = document.querySelector('#finalScore')
-const progressBar = document.getElementById('progressBar')
+const progressBar = document.querySelector('#progressBar')
 
-// In-Game variables .
+// tracking In-Game state variables.
 let score = 0
 let currentIndex = 0
 let selectedCategory = []
 let userAnswers = []
 
+// Firstly: Handles category selection (Cars / Horses).
 function myCategoriesBtnsFunction1() {
   categoryBtns.forEach((button) => {
     button.addEventListener('click', () => {
       const userChoice = button.getAttribute('data-category')
 
+      // Shuffle the questions and pick 5 randomly.
       selectedCategory = myQuestions[userChoice]
         .sort(() => Math.random() - 0.5)
         .slice(0, 5)
 
+      // Hides the category screen, and shows quiz screen.
       categorySection.style.display = 'none'
       quizSection.style.display = 'block'
       scoreBoard.style.display = 'block'
@@ -176,48 +179,57 @@ function myCategoriesBtnsFunction1() {
   })
 }
 
+// Secondly: Initialize the game state for a new round.
 function startTheQuizFunction2() {
   currentIndex = 0
   score = 0
   userAnswers = []
   myShowQuestionsFunction3()
 }
-
+// Thirdly: Display the current question and answer options.
 function myShowQuestionsFunction3() {
-  quizAnswers.innerHTML = ''
+  quizAnswers.innerHTML = '' // clears the previous options
   const currentQuestion = selectedCategory[currentIndex]
   const progressCounter = selectedCategory.length
 
+  // Updates the progress bar filling percentage.
   progressBar.style.width = `${((currentIndex + 1) / progressCounter) * 100}%`
+
+  // Sets the questions text.
   quizQuestions.textContent = currentQuestion.question
 
+  // Loops through options and render answer buttons.
   currentQuestion.options.forEach((option) => {
     const answerButton = document.createElement('button')
     answerButton.textContent = option
     answerButton.classList.add('answerBtn')
 
+    // Handles answer selections.
     answerButton.addEventListener('click', () => {
       userAnswers[currentIndex] = option
 
       const btnColor = quizAnswers.querySelectorAll('.answerBtn')
       btnColor.forEach((btn) => {
+        // Highlights correct answer in green.
         if (btn.textContent == currentQuestion.answer) {
           btn.classList.add('correct')
+          // Highlights incorrect answer in red.
         } else if (btn.textContent === option) {
           btn.classList.add('incorrect')
         }
       })
-
+      // Updates the score if answer is correct.
       if (option === currentQuestion.answer) {
         score++
         scoreBoard.textContent = `Your Score : ${score}`
       }
-
+      // Moves to next question after short delay.
       setTimeout(() => {
         currentIndex++
         if (currentIndex < 5) {
           myShowQuestionsFunction3()
         } else {
+          // End of the quiz.
           quizSection.style.display = 'none'
           quizResult.style.display = 'block'
           finalScore.textContent = `The Final Score is ${score}`
@@ -227,10 +239,11 @@ function myShowQuestionsFunction3() {
 
     quizAnswers.appendChild(answerButton)
   })
+  // Shows the navigation buttons.
   nextBtn.style.display = 'inline-block'
   backBtn.style.display = 'inline-block'
 }
-
+// Least but not last: Navigations logic (next, back, reset).
 function myNavigationButtonsFunction4() {
   nextBtn.addEventListener('click', () => {
     currentIndex++
@@ -248,7 +261,7 @@ function myNavigationButtonsFunction4() {
       myShowQuestionsFunction3()
     }
   })
-
+  // Resets all game states.
   resetBtn.addEventListener('click', () => {
     currentIndex = 0
     score = 0
@@ -259,6 +272,6 @@ function myNavigationButtonsFunction4() {
     scoreBoard.textContent = 'Your Score : 0'
   })
 }
-
+// Finally: Kick off the game.
 myCategoriesBtnsFunction1()
 myNavigationButtonsFunction4()
