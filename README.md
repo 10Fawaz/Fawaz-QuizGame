@@ -126,4 +126,6 @@
 
 2: **W3Schools** Html, Css, JavaScript References( I mostly used it for DOM manipulation, event handling, and basic logic of my game ).
 
-3: **JSFiddle** ( I learned some features here like my progress bar and the timeout() and turning my answer green or red depends if its correct or wrong ).
+3: **JSFiddle** I learned some features here like my progress bar and the timeout() and turning my answer green or red depends if its correct or wrong.
+
+4: **Stack Overflow** It helped me for some specific bugs and issues i faced.
