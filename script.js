@@ -150,6 +150,7 @@ const resetBtn = document.querySelector('#reset')
 const scoreBoard = document.querySelector('#scoreB')
 const quizResult = document.querySelector('#result')
 const finalScore = document.querySelector('#finalScore')
+const progressBar = document.getElementById('progressBar')
 
 // In-Game variables .
 let score = 0
@@ -185,6 +186,9 @@ function startTheQuizFunction2() {
 function myShowQuestionsFunction3() {
   quizAnswers.innerHTML = ''
   const currentQuestion = selectedCategory[currentIndex]
+  const progressCounter = selectedCategory.length
+
+  progressBar.style.width = `${((currentIndex + 1) / progressCounter) * 100}%`
   quizQuestions.textContent = currentQuestion.question
 
   currentQuestion.options.forEach((option) => {
