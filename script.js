@@ -1,3 +1,4 @@
+// This is the Questions, Answers, and the coreect answer object
 const myQuestions = {
   cars: [
     {
@@ -56,19 +57,19 @@ const myQuestions = {
       options: [
         'Anti-Break System',
         'Automatic Braking System',
-        'Anti-Lock Breaking System',
+        'Anti-Lock Braking System',
         'Auto balancing System'
       ],
-      answer: 'Anti-Lock Breaking System'
+      answer: 'Anti-Lock Braking System'
     },
     {
       question: 'Which country is home to the luxury car brand Rolls-Royce?',
       options: ['United States', 'Germany', 'Italy', 'United Kingdom'],
-      answer: 'United kingdom'
+      answer: 'United Kingdom'
     },
     {
       question:
-        'WWhat is the term for the electrical storage component in hybrid cars?',
+        'What is the term for the electrical storage component in hybrid cars?',
       options: [
         'Capacitor',
         'Turbo Cell',
@@ -122,18 +123,20 @@ const myQuestions = {
       answer: 'Filly'
     },
     {
-      question: 'WWhich horse breed is known for its spotted coat patterns?',
+      question: 'Which horse breed is known for its spotted coat patterns?',
       options: ['Appaloosa', 'Arabian', 'Mustang', 'Morgan'],
       answer: 'Appaloosa'
     },
     {
       question:
-        'WWhat is the term for a horse comfortable resting area in a stable?',
+        'What is the term for a horse comfortable resting area in a stable?',
       options: ['Nest', 'Den', 'Stall', 'Pen'],
       answer: 'Stall'
     }
   ]
 }
+
+// The queryselectors i used
 
 const categoryBtns = document.querySelectorAll('[data-category]')
 const categorySection = document.querySelector('.category')
@@ -148,18 +151,17 @@ const scoreBoard = document.querySelector('#scoreB')
 const quizResult = document.querySelector('#result')
 const finalScore = document.querySelector('#finalScore')
 
+// In-Game variables .
 let score = 0
 let currentIndex = 0
 let selectedCategory = []
 let userAnswers = []
 
-myCategoriesBtnsFunction1()
-myNavigationButtonsFunction4()
-
 function myCategoriesBtnsFunction1() {
   categoryBtns.forEach((button) => {
     button.addEventListener('click', () => {
       const userChoice = button.getAttribute('data-category')
+
       selectedCategory = myQuestions[userChoice]
         .sort(() => Math.random() - 0.5)
         .slice(0, 5)
@@ -167,6 +169,7 @@ function myCategoriesBtnsFunction1() {
       categorySection.style.display = 'none'
       quizSection.style.display = 'block'
       scoreBoard.style.display = 'block'
+
       startTheQuizFunction2()
     })
   })
@@ -191,24 +194,37 @@ function myShowQuestionsFunction3() {
 
     answerButton.addEventListener('click', () => {
       userAnswers[currentIndex] = option
+
+      const btnColor = quizAnswers.querySelectorAll('.answerBtn')
+      btnColor.forEach((btn) => {
+        if (btn.textContent == currentQuestion.answer) {
+          btn.classList.add('correct')
+        } else if (btn.textContent === option) {
+          btn.classList.add('incorrect')
+        }
+      })
+
       if (option === currentQuestion.answer) {
         score++
         scoreBoard.textContent = `Your Score : ${score}`
       }
-      currentIndex++
-      if (currentIndex < 5) {
-        myShowQuestionsFunction3()
-      } else {
-        quizSection.style.display = 'none'
-        quizResult.style.display = 'block'
-        finalScore.textContent = `The Final Score is ${score}`
-      }
+
+      setTimeout(() => {
+        currentIndex++
+        if (currentIndex < 5) {
+          myShowQuestionsFunction3()
+        } else {
+          quizSection.style.display = 'none'
+          quizResult.style.display = 'block'
+          finalScore.textContent = `The Final Score is ${score}`
+        }
+      }, 1000)
     })
+
     quizAnswers.appendChild(answerButton)
   })
   nextBtn.style.display = 'inline-block'
   backBtn.style.display = 'inline-block'
-  resetBtn.style.display = 'inline-block'
 }
 
 function myNavigationButtonsFunction4() {
@@ -228,6 +244,7 @@ function myNavigationButtonsFunction4() {
       myShowQuestionsFunction3()
     }
   })
+
   resetBtn.addEventListener('click', () => {
     currentIndex = 0
     score = 0
@@ -238,3 +255,6 @@ function myNavigationButtonsFunction4() {
     scoreBoard.textContent = 'Your Score : 0'
   })
 }
+
+myCategoriesBtnsFunction1()
+myNavigationButtonsFunction4()
