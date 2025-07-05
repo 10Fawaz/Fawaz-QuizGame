@@ -108,10 +108,3 @@ button:hover {
   width: 0%;
   background-color: bisque;
 }
-
-#progressBar {
-  height: 100%;
-  width: 0%;
-  background-color: #4caf50;
-  transition: width 0.4s ease;
-}
